@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <title>The HTML5 Herald</title>
+    <link rel= "stylesheet" type= "text/css" href= "../static/style_main.css">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style_main.css') }}">
+    <h1>{% block heading %}
+        {% endblock %}
+    </h1>
+
+</head>
+<body>
+<div class="navbar">
+    <a href="{{url_for('login')}}" class="active">Login</a>
+    <a href="{{url_for('books')}}">Books</a>
+    <a href="#contact">Contact</a>
+    </div>
+    
+    <h2>Welcome</h2>
+    {% block body %}
+
+    {% endblock %}
+
+</body>
+
+</html>

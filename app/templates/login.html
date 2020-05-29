@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Login </title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='../style_main.css') }}">
+        <link rel= "stylesheet" type= "text/css" href= "../static/style.css">
+
+    </head>
+
+    <body>
+      <div class="login-page">
+        <div class="form">
+          <form class="login-form" action = "{{url_for('login')}}" method="post">
+
+            <input type="text" placeholder="username" name = "username"/>
+            <input type="password" placeholder="password" name = "password"/>
+            <button>login</button>
+            <p class="message">Not registered? <br><a href="{{url_for('register')}}">Create an account</a></p> 
+
+            <p class="message">Do it later! =D <a href="{{url_for('books')}}" method = "GET">Walk in</a></p>
+
+            <!-- METHOD GET IS DEFAULT VALUE ANYWAYS -->
+            <div class="img-cont"> <img src="../static/book0.jpg"> </div>
+
+          </form>
+        </div>
+      </div>
+
+
+    </body>
+</html>
+
+
+
+

@@ -1,0 +1,40 @@
+{% extends "main.html"%}
+
+{%block heading%}
+Block heading titulo
+{%endblock%}
+
+{% block body%}
+<p>
+Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam odio omnis reprehenderit, tempore quibusdam blanditiis, facilis ipsum veritatis velit incidunt sapiente numquam ipsa mollitia officiis qui aut rem ullam atque!
+</p>
+
+<form action="{{ url_for('books') }}" method="post">
+    <div class="form-group">
+        <input class="form-control" name="title" placeholder="title Name" value= "{{ request.form.get('title','')}}">
+        <input class="form-control" name="author" placeholder="author Name" value= "{{ request.form.get('author','')}}">
+        <input class="form-control" name="isbn" placeholder="isbn" value= "{{ request.form.get('isbn','')}}">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary">Filter</button>
+    </div>
+</form>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>ISBN</th>
+          </tr>
+        {% for book in books %}
+        <tr>
+            <TD class="c4"><a href="{{url_for('book', book_id= book.id)}}" >{{book.title}}</a></TD>
+            <TD class="c3">{{book.author}}</TD>
+            <TD class="c2">{{book.year}}</TD>
+            <TD class="c1">{{book.isbn}}</TD>
+        </tr>
+        {% endfor %}
+        </table>
+
+
+{% endblock %}
